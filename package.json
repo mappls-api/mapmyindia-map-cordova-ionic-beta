@@ -1,0 +1,57 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "mapmyindia-map-cordova-ionic-beta",
+        "scope": null,
+        "escapedName": "mapmyindia-map-cordova-ionic-beta",
+        "name": "mapmyindia-map-cordova-ionic-beta",
+        "type": "version"
+      }
+ 
+    ]
+  ],
+  "_from": "mapmyindia-map-cordova-ionic-beta",
+  "_id": "mapmyindia-map-cordova-ionic-beta",
+  "_inCache": true,
+  "_location": "/mapmyindia-map-cordova-ionic-beta",
+  "_nodeVersion": "10.0.0",
+  "_npmUser": {
+    "name": "BM"
+  },
+  "_npmVersion": "6.1.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "mapmyindia-map-cordova-ionic-beta",
+    "scope": null,
+    "escapedName": "mapmyindia-map-cordova-ionic-beta",
+    "name": "mapmyindia-map-cordova-ionic-beta",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+
+  "repository": {
+  "type" : "git",
+  "url" : "https://github.com/MapmyIndia/mapmyindia-map-cordova-ionic-beta.git"
+	},
+  "license": "BSD 3-Clause",
+  "main": "src/index.js",
+  "name": "mapmyindia-map-cordova-ionic-beta",
+  "optionalDependencies": {},
+  "readme": "MapmyIndia Maps official hybrid map SDK for ionic,cordova & react js",
+   "keywords": [
+    "MapmyIndia","Map",
+    "node js",
+    "Leaflet",
+    "ionic",
+    "cordova",
+    "marker",
+    "polyline",
+    "polygon",
+    "circle"
+  ],
+  "version": "0.0.8"
+  
+}

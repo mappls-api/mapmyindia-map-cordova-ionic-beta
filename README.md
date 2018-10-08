@@ -7,6 +7,12 @@ For full documentation contact MapmyIndia here:
 [MapmyIndia: apisupport@mapmyindia.co.in](mailto:apisupport@mapmyindia.co.in).
 You can get your api key to be used in this document here: [https://www.mapmyindia.com/api/signup](https://www.mapmyindia.com/api/signup)
 
+## Version History
+
+| Version | Last Updated | Author |
+| ---- | ---- | ---- |
+| 0.0.8 | October 2018 | MapmyIndia API Team (BM) |
+
 ## Introduction
 This is a NPM based packaged SDK which can be installed directly through NPM.
 
@@ -37,7 +43,11 @@ import { mmi } from 'mapmyindia-map-cordova-ionic-beta';
 
 ...
 
-constructor(private maps: mmi) {}
+constructor(private maps: mmi) {} //Useful for Ionic/Cordova
+
+or 
+
+this.maps=new mmi(); //Useful for other platforms like React.JS
 ```
 
 ### Events
@@ -53,8 +63,12 @@ constructor(private maps: mmi) {}
         - For better GPS location add cordova geolocation plugin: 
              `cordova plugin add cordova-plugin-geolocation`
 ```js
-    var load_maps=this.maps.loadMaps('map',{key:'<your map key>',zoom:{control:true,position:[]},search:{control:true},location:{control:true,initial:true,zoom:16,bounds:true,position:[]}});
+    var load_maps=this.maps.loadMaps('map',{key:'<map key>',zoom:{control:true},location:{control:true,initial:true,bounds:true}});
 ```
+
+<div style="text-align:center">
+<img src ="https://www.mapmyindia.com/api/img/map.png" />
+</div>
 
 ### Controls
 
@@ -162,7 +176,7 @@ map_marker.remove();
 We support leaflet marker method for adding markers in app.
 
 ```js
-L.marker([28.5, 77.5]).addTo(map object);
+this.maps.L.marker([28.5, 77.5]).addTo(map object);
 ```
 
 ##### Adding markers via Custom marker method
@@ -178,7 +192,7 @@ var marker=this.maps.marker(mrker_arr,
  1. Marker Object: (mandatory)
  it can be *single array* with lat, long;
  ```js
- varmrker_arr= [28.5454,77.545454];
+ var mrker_arr= [28.5454,77.545454];
  ```
 
 Other Optional Parameters within array for single & group markers:
@@ -191,7 +205,7 @@ Other Optional Parameters within array for single & group markers:
 example: 
 
 ````js
-varmrker_arr= [28.5454,77.545454,{tooltip:"this is first popup",popup:"this is first popup",divicon:"<img src='https://maps.mapmyindia.com/images/3.png'>",event:["click",function(e){console.log(e)}]}];
+var mrker_arr= [28.5454,77.545454,{tooltip:"this is first popup",popup:"this is first popup",divicon:"<img src='https://maps.mapmyindia.com/images/3.png'>",event:["click",function(e){console.log(e)}]}];
 ````
 
 *With multiple markers array*
@@ -262,7 +276,7 @@ var marker=this.maps.marker(mrker_arr,{iconUrl:"assets/imgs/logo.png", iconSize:
 
 i.e.  
 ```js
-icon:L.icon({iconUrl: 'assets/imgs/logo.png',iconSize:[36, 51]})
+icon:this.maps.L.icon({iconUrl: 'assets/imgs/logo.png',iconSize:[36, 51]})
 ```
 Or
 ```js

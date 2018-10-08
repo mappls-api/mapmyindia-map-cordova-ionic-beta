@@ -972,8 +972,10 @@ var mmi = (function () {
             var innerHTML='<div class="map-control"><ul class="expand-map-control">';
             element.innerHTML=innerHTML;
             if(id.id !==undefined)  id=id.id;
-            document.getElementById(id).appendChild(element);
-            if(params.search.control!==false){ 
+			document.getElementById(id).appendChild(element);
+			var search=false,scale=false,zmm=false,locc=false;
+			try{search=params.search.control;}catch(e){}try{scale=params.scale.control;}catch(e){}try{zmm=params.zoom.control;}catch(e){}try{locc=params.location.control;}catch(e){}
+            if(search!==false){ 
                 var search_dv = L.control({position: 'topright'});
                 var cls="search_dv";if(params.location===false) var cls="cur"; ;
                 search_dv.onAdd = function (map) {var div = L.DomUtil.create('div', cls);
@@ -982,15 +984,15 @@ var mmi = (function () {
                 search_dv.addTo(map_sdk);
                // map.on('click', function(){document.getElementById("m_result"+dis).style.display='none';});
             }
-            if (params.scale.control!==false) L.control.scale({position:(params.scale.position=='topright' || params.scale.position=='topleft' || params.scale.position=='bottomright'?params.scale.position:'bottomleft')}).addTo(map_sdk);
+            if (scale!==false) L.control.scale({position:(params.scale.position=='topright' || params.scale.position=='topleft' || params.scale.position=='bottomright'?params.scale.position:'bottomleft')}).addTo(map_sdk);
             var element = L.DomUtil.create("div","m_ctr"+id);
             var innerHTML='';
-            if(params.zoom.control!==false) 
+            if(zmm!==false) 
             {
                 var style="bottom:50%;right:0"; try{if(params.zoom.position[0] && params.zoom.position[1]!==null) var style="top:"+params.zoom.position[0]+";right:"+params.zoom.position[1];}catch(e){}
                 innerHTML+='<div class="map-control" style="'+style+'" id="m_ctrl"><ul class="expand-map-control"><li><a alt="Zoom In" title="Zoom In" class="map-zoom-in" onclick="map_sdk.zoomIn()">+</a></li><li><a alt="Zoom Out" title="Zoom Out" class="map-zoom-out" onclick="map_sdk.zoomOut()">-</a></li></ul></div>';
             }
-            if(params.location.control!==false)
+            if(locc!==false)
             {
                 var style="bottom: calc(50% - 3em);right:0"; try{if(params.location.position[0] && params.location.position[1]!==null) var style="top:"+params.location.position[0]+";right:"+params.location.position[1];}catch(e){}
                 innerHTML+='<div class="map-control" style="'+style+'"><ul class="expand-map-control"><li onclick="geo(map_sdk,1);"><a id="geo_location" alt="Current Location" title="Current Location" class=""><div></div></a></li></ul></div>';
@@ -1092,7 +1094,7 @@ var mmi = (function () {
         xhttp.open("GET", "https://apis.mapmyindia.com/map_v3/?lat="+lat+"&lng="+lng, true);xhttp.send();return false;
         }
       
-        var did=document.getElementById("m_dv"+cnt);var vid=document.getElementById("m_auto"+cnt);if(did.style.display == "none") {did.style.display= "inline";vid.select();L.DomEvent.disableClickPropagation(m_automap);}
+        var did=document.getElementById("m_dv"+cnt);var vid=document.getElementById("m_auto"+cnt);if(did.style.display == "none") {did.style.display= "inline";vid.select();L.DomEvent.disableClickPropagation(did);}
         var dsp="";
         var val=vid.value;
 
