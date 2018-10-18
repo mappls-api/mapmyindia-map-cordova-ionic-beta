@@ -1,5 +1,4 @@
-﻿
-# MapmyIndia Map SDK for Cordova/Ionic - Beta 1
+﻿# MapmyIndia Map SDK for Cordova/Ionic - Beta 1
 
 [![N|Solid](https://www.mapmyindia.com/api/img/mapmyindia-api.png)](https://www.mapmyindia.com/api/)
 
@@ -11,7 +10,7 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.0.8 | October 2018 | MapmyIndia API Team (BM) |
+| 0.0.9 | October 2018 | MapmyIndia API Team (BM) |
 
 ## Introduction
 This is a NPM based packaged SDK which can be installed directly through NPM.
@@ -21,7 +20,7 @@ Create your own **Cordova Based native app** powered by MapmyIndia Maps and depl
 Package name: mapmyindia-map-cordova-ionic-beta
 
 ### Technologies
-Node.js, Javascript, Cordova, Ionic, leaflet
+Node.js, Javascript,React JS, Cordova, Ionic, leaflet
 
 ## Supported Platforms
 - Android
@@ -30,11 +29,21 @@ Node.js, Javascript, Cordova, Ionic, leaflet
 ```js
     npm i mapmyindia-map-cordova-ionic-beta 
 ```
+- ##### Add this plugin to your app's module(app.module.ts) and also include as a provider if you are using `IONIC V>1` ie. below
 ```js
-    import { mmi } from 'mapmyindia-map-cordova-ionic-beta';
-```
-> Add this plugin to your app's module and also include as a provider
+import { mmi } from 'mapmyindia-map-cordova-ionic-beta';
+@NgModule({
+  ...
 
+  providers: [
+    ...
+    mmi
+    ...
+  ]
+  ...
+})
+export class AppModule { }
+```
 ## Features
 
 ### General Usage
@@ -43,11 +52,11 @@ import { mmi } from 'mapmyindia-map-cordova-ionic-beta';
 
 ...
 
-constructor(private maps: mmi) {} //Useful for Ionic/Cordova
+constructor(private maps: mmi) {} //Useful for Ionic
 
 or 
 
-this.maps=new mmi(); //Useful for other platforms like React.JS
+this.maps=new mmi(); 
 ```
 
 ### Events
@@ -59,9 +68,12 @@ this.maps=new mmi(); //Useful for other platforms like React.JS
     - `Key<sup>*</sup>`: your api map key from [Mapmyindia](https://www.mapmyindia.com/api/dashboard) `(mandatory)`
     - `Zoomcontrol`
     - `Search control`
+    - `center` centre map to a geoposition 
+    e.g. `center:[25.5454,77.54545]`
     - `Location control`
         - For better GPS location add cordova geolocation plugin: 
              `cordova plugin add cordova-plugin-geolocation`
+
 ```js
     var load_maps=this.maps.loadMaps('map',{key:'<map key>',zoom:{control:true},location:{control:true,initial:true,bounds:true}});
 ```
@@ -76,17 +88,13 @@ this.maps=new mmi(); //Useful for other platforms like React.JS
 
 Zoom control can be controlled by using the following parameter: 
 
+ - `zoom` number between 4 to 18 //To show initial map zoom
+ e.g. `zoom:15`
  - `control` //To show or hide the zoom control; takes boolean values
  e.g. `control:true`
- - `position` //To change the position of the control
-e.g. `position:[top,left]`
-Valid options are: 
-
-| 1st variable | 2nd variable |
-| ---- | ---- |
-| bottom | right |
-| top | left | 
-
+- `position:[topPosition,leftPosition]` To change the position of the control
+The topPosition or leftPosition can be absolute values in pixels or relative values in percentage
+ e.g. `position:['150px','200px']` OR `position:['10%','20%']`
 
  #### 2. Location
  A location control provides a button that uses the GPS geolocation API to locate the user on the map.
@@ -98,14 +106,11 @@ e.g. `initial:true`
 - `zoom` set any any initial zoom on location; takes integer zoom levels from 4 to 17.
 - `bounds` set location bound with center to default level zoom 16.
 - `html` icon (html) for showing location on map.
-- `position` //To change the position of the control
-e.g. `position:[top,left]`
-Valid options are: 
+- `position:[topPosition,leftPosition]` To change the position of the control
+The topPosition or leftPosition can be absolute values in pixels or relative values in percentage
+ e.g. `position:['150px','200px']` OR `position:['10%','20%']`
 
-| 1st variable | 2nd variable |
-| ---- | ---- |
-| bottom | right |
-| top | left | 
+
 
 
 ##### Example of using location
@@ -120,15 +125,9 @@ To show scale on the maps, scale control can be used; which has the following pa
 
 - `scale`default false; to show scale; takes boolean values.
 e.g. `initial:true`
-- `position` //To change the position of the control
-e.g. `position:[top,left]`
-Valid options are: 
-
-| 1st variable | 2nd variable |
-| ---- | ---- |
-| bottom | right |
-| top | left |
-#### 4. Map Layers
+- `position:[topPosition,leftPosition]` To change the position of the control
+The topPosition or leftPosition can be absolute values in pixels or relative values in percentage
+ e.g. `position:['150px','200px']` OR `position:['10%','20%']`#### 4. Map Layers
 
 ##### 1. Hybrid
 Hybrid maps can be shown or hidden with the help of a method call. Hybrid maps are satellite maps overlayed with MapmyIndia Map labels and transportation network.
@@ -144,6 +143,7 @@ this.maps.hybrid (false);
 
 ##### 2. Traffic
 Traffic layer can be shown or hidden with the help of a method call. Traffic layer is the traffic flow overlay within MapmyIndia Maps that shows the flow of traffic on road segments.
+*This overlay is available only for paid customers.*
 
 - Show traffic layer
 ```js
@@ -286,6 +286,9 @@ iconUrl:"assets/imgs/logo.png"
 fitbounds:true/false** /*to fit map bounds  according to all markers*/
 ```
 ```js
+rotationAngle:angle //ie rotationAngle:90
+```
+```js
 cluster:true/false
 ```
 Or use custom options for clustering
@@ -416,8 +419,8 @@ polyline.remove();
 ##### Animated / Decorated Polyline
 Use below option to show decorated polyline: 
 ```js
-decorator:{icon:{iconUrl:'assets/imgs/car.png',iconSize:[14, 33]}}
-var polyline=this.maps.polyline(pts,{weight:7,color:"green",fitbounds:true,decorator:{icon:{iconUrl: 'assets/imgs/car.png',iconSize: [14, 33]}}});
+decorator:{icon:{iconUrl:'assets/imgs/car.png',iconSize:[14, 33],speed:20 /*in milliseconds*/}}
+var polyline=this.maps.polyline(pts,{weight:7,color:"green",fitbounds:true,decorator:{icon:{iconUrl: 'assets/imgs/car.png',iconSize: [14, 33],speed:20}}});
 ```
 
 #### 3. Circles
