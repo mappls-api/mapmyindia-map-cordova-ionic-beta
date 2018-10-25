@@ -40,7 +40,7 @@
   "main": "src/index.js",
   "name": "mapmyindia-map-cordova-ionic-beta",
   "optionalDependencies": {},
-  "readme": "MapmyIndia Maps official hybrid map SDK for ionic,cordova & react js",
+  "readme": "MapmyIndia Maps official hybrid map SDK for ionic,cordova & react js-nodejs - NPM,GITHub",
    "keywords": [
     "MapmyIndia","Map",
     "node js",
@@ -53,8 +53,9 @@
     "circle",
 	"iOS",
 	"Android",
-	"Windows"
+	"Windows",
+	"REACT js"
   ],
-  "version": "0.0.9"
+  "version": "0.1.0"
   
 }

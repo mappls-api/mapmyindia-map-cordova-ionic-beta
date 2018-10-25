@@ -10,7 +10,7 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.0.9 | October 2018 | MapmyIndia API Team (BM) |
+| 0.1.0 | October 2018 | MapmyIndia API Team (BM) |
 
 ## Introduction
 This is a NPM based packaged SDK which can be installed directly through NPM.
@@ -63,7 +63,7 @@ this.maps=new mmi();
 
 #### 1. MapLoad
  `loadmap` method needs two parameters to initialize a map in SDK
-1) Map div #id
+1) Map div #id // with proper css width & height
 2) Map parameters
     - `Key<sup>*</sup>`: your api map key from [Mapmyindia](https://www.mapmyindia.com/api/dashboard) `(mandatory)`
     - `Zoomcontrol`
@@ -419,7 +419,7 @@ polyline.remove();
 ##### Animated / Decorated Polyline
 Use below option to show decorated polyline: 
 ```js
-decorator:{icon:{iconUrl:'assets/imgs/car.png',iconSize:[14, 33],speed:20 /*in milliseconds*/}}
+decorator:{icon:{iconUrl:'assets/imgs/car.png',iconSize:[14, 33],speed:20 /*range between 0-100*/}}
 var polyline=this.maps.polyline(pts,{weight:7,color:"green",fitbounds:true,decorator:{icon:{iconUrl: 'assets/imgs/car.png',iconSize: [14, 33],speed:20}}});
 ```
 
