@@ -966,7 +966,7 @@ var mmi = (function () {
             map_sdk = L.map(id, { zoomControl:false }).setView(center, zm);
 	        eval("window.map_sdk = map_sdk,window.auto = mmi.prototype.auto,window.geo=mmi.prototype.geo,window.auto_pval=auto_pval,window.auto_req=auto_req,window.s_icn=s_icn");
             var att='<div id="att_txt"><img src="data:image/png;base64,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" style="height: 30px;border-radius: 30%;padding: 5px;border: 1px solid #f1c9a2;"><div>';
-			map_tile=map_tile.replace(params.key,'')+params.key;global.mmi_tl=L.tileLayer(map_tile +"/"+(L.Browser.retina?'retina_map':'still_map')+'/{z}/{x}/{y}.png', {subdomains:subd,maxZoom: 18,  minZoom: 4});map_sdk.addLayer(global.mmi_tl);
+            global.mmi_tl=L.tileLayer((map_tile+=params.key) +"/"+(L.Browser.retina?'retina_map':'still_map')+'/{z}/{x}/{y}.png', {subdomains:subd,maxZoom: 18,  minZoom: 4});map_sdk.addLayer(global.mmi_tl);
             var element = L.DomUtil.create("div","m_ctr_"+id);
             var innerHTML='<div class="map-control"><ul class="expand-map-control">';
             element.innerHTML=innerHTML;
@@ -995,8 +995,7 @@ var mmi = (function () {
             {
                 var style="bottom: calc(50% - 3em);right:0"; try{if(params.location.position[0] && params.location.position[1]!==null) var style="top:"+params.location.position[0]+";right:"+params.location.position[1];}catch(e){}
                 innerHTML+='<div class="map-control" style="'+style+'"><ul class="expand-map-control"><li onclick="geo(map_sdk,1);"><a id="geo_location" alt="Current Location" title="Current Location" class=""><div></div></a></li></ul></div>';
-				if(params.location.initial!==false) geo(map_sdk,0,params.location.center,params.location.zoom,params.location.bounds,params.location.html);
-			} 
+            } 
 
            // if(mhy==true) innerHTML+='<li class="layer-item-wrap" alt="Map Layers" title="Map Layers" ><a><i class="ti ti-layers-alt"></i></a><ul class="ft-layer-link"><li id="m_t'+id+'" onclick="MapmyIndia.tls(map,'+id+',\'\')"><a><span class="layer-item-img"><img src="https://maps.mapmyindia.com/images/mapview.jpg" alt=""></span>MapmyIndia</a></li><li id="h_t'+id+'" onclick=" MapmyIndia.tls(map_o['+id+'],'+id+',\'h\')"><a><span class="layer-item-img"><img src="https://maps.mapmyindia.com/images/hybridview.jpg" alt=""></span>Hybrid</a></li>';
            
@@ -1009,9 +1008,8 @@ var mmi = (function () {
             };
             //map_sdk.on('touchend', function(e) {document.getElementById('geo_location').classList.remove('on');});
             mmi.prototype.layer = map_sdk;
-            
-			
-			return map_sdk;
+            if(params.location.initial!==false) geo(map_sdk,0,params.location.center,params.location.zoom,params.location.bounds,params.location.html);
+            return map_sdk;
         }
         else {
             return alert('key required');
@@ -1019,8 +1017,7 @@ var mmi = (function () {
     };
     mmi.prototype.geo = function (mpp,load,center,zoom,bound,html)
     {
-		eval("window.xyzzz = xyzzz,window.cr = cr,window.g_watch=g_watch");
-		setTimeout(function(){
+        eval("window.xyzzz = xyzzz,window.cr = cr,window.g_watch=g_watch");
 		var clsid=document.getElementById('geo_location');
 		if(clsid){
 			if(clsid.className.indexOf('on')!=-1 && xyzzz) 
@@ -1031,7 +1028,7 @@ var mmi = (function () {
 			}
 			if(load) clsid.classList.add('mload');
 			else clsid.classList.remove('mload');clsid.classList.add('on');
-				g_watch=navigator.geolocation.watchPosition(function(position){ 
+				g_watch=navigator.geolocation.watchPosition(function(position){ console.log(clsid.className);
 				if(clsid.className!='on' && clsid.className!='mload on' && clsid.className!='activated mload on')
 				{
 					navigator.geolocation.clearWatch(g_watch);return false;
@@ -1047,12 +1044,31 @@ var mmi = (function () {
 				clsid.classList.add('on');clsid.classList.remove('mload');         
 				},function(error) {clsid.classList.remove('on');if(load){ alert('MapmyIndia does not have permission to view your location.');navigator.geolocation.clearWatch(g_watch);clsid.classList.remove('mload');}
 			},{ timeout: 10000,enableHighAccuracy: true });
-		}},200);
+		}
     };
     mmi.prototype.removeLayer=function(layerid,map_id)
     {
         if(!map_id) map_id=map_sdk;if(layerid) map_id.removeLayer(layerid);else console.log(layerid+" not found");
-    };
+	};
+	mmi.prototype.fetch=function (url,success_callback, error_callback) {
+		var script,callback_name="response";
+		function after() {
+			setTimeout(function () {
+				document.getElementsByTagName("head")[0].removeChild(script);
+			}, 1);
+		}
+		script = document.createElement('script');
+		window[callback_name] = function (response) {
+			after();success_callback(response);
+		};
+		script.type = 'text/javascript';
+		script.src = url+"&callback="+callback_name
+		script.async = true;
+		script.addEventListener('error', function () {
+			after();error_callback();
+		});
+		document.getElementsByTagName("head")[0].appendChild(script);
+	};
     mmi.prototype.traffic=function(status,map_id){        
         if(!map_id) map_id=map_sdk;
         if(!map_id._leaflet_id){console.log('View@incorrectmapid');return false;}
@@ -1068,10 +1084,9 @@ var mmi = (function () {
         if(!map_id) map_id=map_sdk;
         if(!map_id._leaflet_id){console.log('View@incorrectmapid');return false;}
         if(status)
-        { 
-		  if(global.hyd_base) map_id.removeLayer(global.hyd_base);if(global.hyd_tl) map_id.removeLayer(global.hyd_tl);
-		  map_id.removeLayer(global.mmi_tl);
-          global.mmi_tl=L.tileLayer(map_tile + '/bhuvan_imagery/{z}/{x}/{y}.png', {subdomains:subd,maxZoom: 18,  minZoom: 4});map_id.addLayer(global.mmi_tl);
+        {
+          if(global.hyd_base) map_id.removeLayer(global.hyd_base);if(global.hyd_tl) map_id.removeLayer(global.hyd_tl);
+          global.mmi_tl.setUrl(map_tile + '/bhuvan_imagery/{z}/{x}/{y}.png', {subdomains:subd,maxZoom: 18,  minZoom: 4});map_id.addLayer(global.mmi_tl);
           global.hyd_base=L.tileLayer(map_tile +"/"+(L.Browser.retina?'retina_hybrid':'base_hybrid')+'/{z}/{x}/{y}.png', {subdomains:subd,maxZoom: 18,  minZoom: 4});map_id.addLayer(global.hyd_base);
           global.hyd_tl=L.tileLayer(map_tile + '/hybrid_label/{z}/{x}/{y}.png', {subdomains:subd,maxZoom: 18,  minZoom: 4});map_id.addLayer(global.hyd_tl);
         }
@@ -1177,13 +1192,12 @@ var mmi = (function () {
 			map_sdk.addLayer(polyline); 
 			if(pop_html) polyline.bindPopup(pop_html);if(openpop===true) polyline.openPopup();if(tooltip) polyline.bindTooltip(pop_html);
 			if(bound===true) {map_sdk.fitBounds(polyline.getBounds());document.getElementById('geo_location').classList.remove('on');}
-			if(decorator){ var icon=decorator.icon,speed=10,repeat=false;try{speed=decorator.speed;if(speed>100 || speed<0) speed=10;}catch(e){}try{repeat=decorator.repeat}catch(e){}
+			if(decorator){ var icon=decorator.icon;var speed=10;try{speed=decorator.speed}catch(e){}
 			var decorator = L.polylineDecorator(polyline).addTo(map_sdk),offset=0,w = 14, h = 33; 
             var interval = window.setInterval(function () { 
-				if(!map_sdk.hasLayer(polyline)) { clearTimeout(interval);return false;} console.log(offset);
                 decorator.setPatterns([{ offset: offset + '%', symbol: L.Symbol.marker({rotate: true, markerOptions: {icon: L.icon(icon)}})}]);
-                if ((offset += 0.02) > 100 && repeat==false) { clearTimeout(interval);return false;}if ((offset += 0.02) > 100) offset = 0;
-			}, 100-speed);
+                if ((offset += 0.03) > 100) offset = 0;
+			}, speed);
 		}
 		return polyline;
 		}
@@ -1192,43 +1206,7 @@ var mmi = (function () {
 			alert('ddd');
 		}
 	}
-    mmi.prototype.autoss = function (key) {
-           
-        /*var express = require('express');
-        var cors = require('cors');
-        var app = express();
-
-        app.use(cors());
-
-        app.get('https://apis.mapmyindia.com/advancedmaps/v1/gyddrwejj8vgbxr6qqn8lfhorg3m1upk/auto?q=new%20delhi', cors(), function (req, res, next) {
-           
-        console.log(res);
-        });*/
-            fetch('https://apis.mapmyindia.com/advancedmaps/v1/gyddrwejj8vgbxr6qqn8lfhorg3m1upk/auto?q=agra',{
-            method: 'GET',
-            mode: 'cors',
-            headers: new Headers({
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-            
-            })
-        })
-        .then(
-                function(response) {
-                response.json().then(function(data) {
-                    console.log(JSON.stringify(data));
-                    return data;
-                });
-                
-            }
-        )
-        .catch(function(err) {
-            console.log(err);
-        });
-  
-    };
-   
-    mmi.prototype.L = L;
+   mmi.prototype.L = L;
     return mmi;
 }());
 exports.mmi = mmi;

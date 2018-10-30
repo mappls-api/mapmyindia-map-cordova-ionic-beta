@@ -43,7 +43,7 @@
   "readme": "MapmyIndia Maps official hybrid map SDK for ionic,cordova & react js-nodejs - NPM,GITHub",
    "keywords": [
     "MapmyIndia","Map",
-    "node js",
+    "nodejs - NPM",
     "Leaflet",
     "ionic",
     "cordova",
@@ -56,6 +56,6 @@
 	"Windows",
 	"REACT js"
   ],
-  "version": "0.1.0"
+  "version": "0.1.1"
   
 }
