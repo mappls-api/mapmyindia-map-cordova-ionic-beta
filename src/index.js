@@ -1180,7 +1180,11 @@ var mmi = (function () {
 	};
 	mmi.prototype.polyline = function (pts,options) {
 		var bound=false,tooltip,pop_html,openpop,decorator=false;
-		try{bound=options.fitbounds;tooltip=options.tooltip;pop_html=options.popup;openpop=options.openpopup;decorator=options.decorator;}catch(e){}
+		try{bound=options.fitbounds;}catch(e){}
+		try{tooltip=options.tooltip;}catch(e){}
+		try{pop_html=options.popup;}catch(e){}
+		try{openpop=options.openpopup;}catch(e){}
+		try{decorator=options.decorator;}catch(e){}
 		if(pts)
 		{
 			if(pts.features){ /*geojson */
@@ -1191,8 +1195,8 @@ var mmi = (function () {
 			else var polyline = L.polyline(pts, options);
 			map_sdk.addLayer(polyline); 
 			if(pop_html) polyline.bindPopup(pop_html);if(openpop===true) polyline.openPopup();if(tooltip) polyline.bindTooltip(pop_html);
-			if(bound===true) {map_sdk.fitBounds(polyline.getBounds());document.getElementById('geo_location').classList.remove('on');}
-			if(decorator){ var icon=decorator.icon;var speed=10;try{speed=decorator.speed}catch(e){}
+			if(bound===true) {map_sdk.fitBounds(polyline.getBounds());try{document.getElementById('geo_location').classList.remove('on');}catch(e){}}
+			if(decorator){ var icon=decorator.icon;var speed=10;try{speed=(100-(decorator.speed?decorator.speed:(decorator.icon.speed?decorator.icon.speed:10)))}catch(e){}
 			var decorator = L.polylineDecorator(polyline).addTo(map_sdk),offset=0,w = 14, h = 33; 
             var interval = window.setInterval(function () { 
                 decorator.setPatterns([{ offset: offset + '%', symbol: L.Symbol.marker({rotate: true, markerOptions: {icon: L.icon(icon)}})}]);

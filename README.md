@@ -10,7 +10,7 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.1.1 | October 2018 | MapmyIndia API Team (BM) |
+| 0.1.5 | October 2018 | MapmyIndia API Team (BM) |
 
 ## Introduction
 This is a NPM based packaged SDK which can be installed directly through NPM.
