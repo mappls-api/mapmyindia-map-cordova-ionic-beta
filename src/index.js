@@ -1214,5 +1214,26 @@ var mmi = (function () {
     return mmi;
 }());
 exports.mmi = mmi;
+var mmiPlugin = (function () {
+function mmiPlugin(key) {
+if(key){
+var req = new XMLHttpRequest();
+req.open('GET', "https://apis.mapmyindia.com/advancedmaps/api/"+key+"/map_sdk_plugins", false);
+req.onreadystatechange = function(){
+if (req.readyState == 4) {
+var s = document.createElement("script");
+s.appendChild(document.createTextNode(req.responseText));
+// document.head.appendChild(s);
+document.getElementsByTagName("head")[0].appendChild(s);
+}
+};
+req.send(null);
+}else{
+alert('key required');
+}
+}
+return mmiPlugin;
+}());
+exports.mmiPlugin = mmiPlugin;
 
 

@@ -10,7 +10,7 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.1.5 | October 2018 | MapmyIndia API Team (BM) |
+| 0.1.8 | Jan 2020 | MapmyIndia API Team ([BM](https://www.npmjs.com/~balmukand)) |
 
 ## Introduction
 This is a NPM based packaged SDK which can be installed directly through NPM.
@@ -458,6 +458,14 @@ Leaflet Properties & Events for polygons thus added are also supported in our Hy
 polygon.bindTooltip("This is first tooltip");
 polygon.closeTooltip();
 ```
+# MapmyIndia Plugin 
+* Marker Plugin - Markers based on eloc only 
+* getEloc Plugin
+* Search Plugin
+* Nearby Plugin
+* PlacePicker Plugin
+
+Documention Link: https://github.com/MapmyIndia/mapmyindia-places-n-directions-web-sdk
 
 For any queries and support, please contact: 
 
