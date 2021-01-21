@@ -10,7 +10,7 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.1.8 | Jan 2020 | MapmyIndia API Team ([BM](https://www.npmjs.com/~balmukand)) |
+| 0.1.9 | Jan 2020 | MapmyIndia API Team ([BM](https://www.npmjs.com/~balmukand)) |
 
 ## Introduction
 This is a NPM based packaged SDK which can be installed directly through NPM.
@@ -459,13 +459,80 @@ polygon.bindTooltip("This is first tooltip");
 polygon.closeTooltip();
 ```
 # MapmyIndia Plugin 
+### How to include MapmyIndia Plugins
+```js
+import { mmi,mmiPlugin} } from 'mapmyindia-map-cordova-ionic-beta';
+
+```
+### How to Initialzed MapmyIndia Plugin
+```js
+new mmiPlugin('PLUGIN_KEY');
+
+//Method Calls
+var options={
+  map:this.mapss, // add map object
+  callback:callback_method // add callback method for result.
+};
+new MapmyIndia.placePicker(options);
+function callback_method(data) {
+  console.log(data);
+  alert(JSON.stringify(data));
+}
+```
+
+### Available Plugins:- 
 * Marker Plugin - Markers based on eloc only 
 * getEloc Plugin
 * Search Plugin
 * Nearby Plugin
 * PlacePicker Plugin
+* getDistance Plugin
 
 Documention Link: https://github.com/MapmyIndia/mapmyindia-places-n-directions-web-sdk
+
+### Example with map
+
+```js
+import { Component } from '@angular/core';
+import { mmi, mmiPlugin} from "mapmyindia-map-cordova-ionic-beta";
+declare var MapmyIndia;
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+export class HomePage {
+  public maps: any;
+  public mapss: any;
+  constructor() {}
+
+  ionViewWillEnter() {
+    this.maps = new mmi();
+    new mmiPlugin('MapmyIndia Token');
+
+    this.mapss = this.maps.loadMaps("map", {
+      key: "MAP_KEY",
+      center: [25.5454, 77.54545],
+      zoom: { zoom: 5, control: true, position: ["100px", "3px"] },
+      location: {
+        control: true,
+        initial: true,
+        bounds: true,
+        position: ["180px", "3px"],
+      },
+    });
+
+    // 1. placePiker
+    var options={
+        map:this.mapss,
+        callback:callback_method
+    };
+    new MapmyIndia.placePicker(options);
+    function callback_method(data) {
+      console.log(data);alert(JSON.stringify(data));
+    }
+  }
+}
+```
 
 For any queries and support, please contact: 
 
