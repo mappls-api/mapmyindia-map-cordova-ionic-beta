@@ -10,7 +10,7 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.2.1 | Feb 2021 | MapmyIndia API Team ([BM](https://www.npmjs.com/~balmukand)) |
+| 0.2.2 | March 2022 | MapmyIndia API Team ([BM](https://www.npmjs.com/~balmukand)) |
 
 ## Introduction
 This is a NPM based packaged SDK which can be installed directly through NPM.
@@ -552,5 +552,5 @@ Need support? contact us!
 Read about the latest updates & customer stories
 
 
-> Â© Copyright 2022. CE Info Systems Ltd. All Rights Reserved. | [Terms & Conditions](http://www.mapmyindia.com/api/terms-&-conditions)
+> © Copyright 2022. CE Info Systems Ltd. All Rights Reserved. | [Terms & Conditions](http://www.mapmyindia.com/api/terms-&-conditions)
 >  Written with [StackEdit](https://stackedit.io/) by MapmyIndia.
